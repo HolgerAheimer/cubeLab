@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <title>Cube says hello</title>
     <style>
-        body { margin: 0; }
-        canvas { width: 100%; height: 100%; }
+        body {
+            margin: 0;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        #cubeSize {
+            width: 50px;
+        }
     </style>
-    <script type="module" src="main.js"></script>
+    <script type="module">
+        import { updateCubeSize } from './main.js';
+        window.updateCubeSize = updateCubeSize;
+    </script>
 </head>
+
 <body>
-    <canvas id="c" width="500px" height="250px"></canvas>
+    <div>
+        <label for="cubeSize">Cube Size:</label>
+        <input type="number" id="cubeSize" min="1" value="7">
+        <button onclick="updateCubeSize()">Update</button>
+    </div>
+    <canvas id="c"></canvas>
 </body>
+
 </html>
